@@ -1,0 +1,65 @@
+# ##############################################################################
+#
+# zsh packages
+#
+# ##############################################################################
+
+source /usr/local/share/antigen/antigen.zsh
+
+antigen bundle jaridmargolin/bm
+antigen use oh-my-zsh
+
+antigen bundle lukechilds/zsh-better-npm-completion
+antigen bundle yarn
+antigen bundle direnv
+antigen bundle ssh-agent
+antigen bundle history
+antigen bundle aws
+antigen bundle docker
+antigen bundle extract
+antigen bundle gretzky/auto-color-ls
+antigen bundle zdharma/zsh-diff-so-fancy
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle sirhc/op.plugin.zsh
+antigen theme romkatv/powerlevel10k
+
+# configure your keybindings here... just 2 lines of code!
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+antigen apply
+
+
+# ##############################################################################
+#
+# Powerlevel 10k
+#
+# ##############################################################################
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# ##############################################################################
+#
+# Custom titles
+#
+# ##############################################################################
+
+function set-title(){
+  DISABLE_AUTO_TITLE="true"
+  echo -en "\e]2;$@\a"
+}
+
+
+# ##############################################################################
+#
+# local fixes
+#
+# ##############################################################################
+
+# Fix "%" displaying upon new hyper session
+unsetopt PROMPT_SP
+

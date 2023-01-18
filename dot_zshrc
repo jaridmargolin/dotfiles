@@ -4,7 +4,7 @@
 #
 # ##############################################################################
 
-source /usr/local/share/antigen/antigen.zsh
+source ~/antigen/antigen.zsh
 
 antigen bundle jaridmargolin/bm
 antigen use oh-my-zsh

@@ -5,7 +5,6 @@
 # ##############################################################################
 
 export ANTIGEN_LOG=~/antigen.log
-
 source ~/antigen/antigen.zsh
 
 antigen bundle jaridmargolin/bm
@@ -19,12 +18,13 @@ antigen bundle history
 antigen bundle aws
 antigen bundle docker
 antigen bundle extract
+antigen bundle 1password
 antigen bundle gretzky/auto-color-ls
 antigen bundle zdharma/zsh-diff-so-fancy
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle sirhc/op.plugin.zsh
+
 antigen theme romkatv/powerlevel10k
 
 # configure your keybindings here... just 2 lines of code!

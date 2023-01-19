@@ -4,6 +4,8 @@
 #
 # ##############################################################################
 
+export ANTIGEN_LOG=~/antigen.log
+
 source ~/antigen/antigen.zsh
 
 antigen bundle jaridmargolin/bm
@@ -31,35 +33,14 @@ bindkey '^[[B' history-substring-search-down
 
 antigen apply
 
-
 # ##############################################################################
 #
-# Powerlevel 10k
-#
-# ##############################################################################
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# ##############################################################################
-#
-# Custom titles
+# source local zsh configuration
 #
 # ##############################################################################
 
-function set-title(){
-  DISABLE_AUTO_TITLE="true"
-  echo -en "\e]2;$@\a"
-}
+for f in $(find -L ./zsh/common -name "*.sh"); do [ -f $f ] && source "$f"; done
 
-
-# ##############################################################################
-#
-# local fixes
-#
-# ##############################################################################
-
-# Fix "%" displaying upon new hyper session
-unsetopt PROMPT_SP
-
+if [[ $OSTYPE == 'darwin'* ]]; then
+  for f in $(find -L ./zsh/macos -name "*.sh"); do [ -f $f ] && source "$f"; done
+fi

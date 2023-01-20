@@ -7,6 +7,8 @@
 export ANTIGEN_LOG=~/antigen.log
 source ~/antigen/antigen.zsh
 
+zstyle ':omz:plugins:yarn' global-path no
+
 antigen bundle jaridmargolin/bm
 antigen use oh-my-zsh
 

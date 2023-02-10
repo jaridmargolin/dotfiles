@@ -15,7 +15,6 @@ antigen use oh-my-zsh
 antigen bundle lukechilds/zsh-better-npm-completion
 antigen bundle yarn
 antigen bundle direnv
-antigen bundle ssh-agent
 antigen bundle history
 antigen bundle aws
 antigen bundle docker

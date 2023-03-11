@@ -2,12 +2,12 @@
 
 # ##############################################################################
 #
-# ruby.sh
+# nodejs.sh
 #
 # ##############################################################################
 
-plugin="ruby"
-version="3.0.2"
+plugin="nodejs"
+version="16.13.0"
 
 if type "asdf" > /dev/null; then
     if ! asdf plugin list | grep -q "$plugin"; then

@@ -4,11 +4,19 @@
 #
 # python.sh
 #
-# Common helpers/aliases for working with python on MacOSX.
-#
 # ##############################################################################
 
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)";
-eval "$(pyenv virtualenv-init -)";
-pyenv global 2.7.16;
+plugin="python"
+version="3.9.7"
+#version="2.7.16"
+
+if type "asdf" > /dev/null; then
+    if ! asdf plugin list | grep -q "$plugin"; then
+        asdf plugin add $plugin
+    fi
+    if ! asdf list $plugin | grep -q "$version"; then
+        asdf install $plugin $version
+    fi
+
+    asdf global $plugin $version
+fi

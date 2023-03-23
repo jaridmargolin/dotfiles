@@ -29,5 +29,6 @@ alias xclip='pbcopy'
 
 set-title(){
   DISABLE_AUTO_TITLE="true"
-  echo -en "\e]2;$@\a"
+  WARP_DISABLE_AUTO_TITLE="true"
+  echo -ne "\033]0;$@\007"
 }

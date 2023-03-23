@@ -24,13 +24,28 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-antigen theme romkatv/powerlevel10k
-
 # configure your keybindings here... just 2 lines of code!
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 antigen apply
+
+# ##############################################################################
+#
+# configure prompt
+#
+# ##############################################################################
+
+
+# Check if starship is installed
+if ! command -v starship &> /dev/null
+then
+    echo "Starship not found. Installing..."
+    curl -sS https://starship.rs/install.sh | sh
+fi
+
+# Initialize starship
+eval "$(starship init zsh)"
 
 # ##############################################################################
 #

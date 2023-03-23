@@ -1,5 +1,12 @@
 [user]
 	name = Jarid Margolin
 	email = jaridmargolin@gmail.com
+
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = "if command -v diff-so-fancy >/dev/null 2>&1; then diff-so-fancy | less --tabs=4 -RFX; else less --tabs=4 -RFX; fi"
+
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f

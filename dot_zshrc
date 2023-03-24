@@ -13,6 +13,7 @@ antigen bundle jaridmargolin/bm
 antigen use oh-my-zsh
 
 antigen bundle lukechilds/zsh-better-npm-completion
+antigen bundle asdf
 antigen bundle yarn
 antigen bundle direnv
 antigen bundle history

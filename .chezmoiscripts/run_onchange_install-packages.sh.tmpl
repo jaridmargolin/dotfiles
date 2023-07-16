@@ -10,32 +10,47 @@
 #
 # ##############################################################################
 
+# check for dependencies required to install packages
+# unzip, curl, wget, git
+
+# Make sure the environment is prepared for installation
+mkdir -p ~/.local/bin
+mkdir -p ~/.local/share
+
 # ##############################################################################
 # exa
 # ##############################################################################
 
+EXA_VERSION="v0.10.1"
+
 {{ if eq .chezmoi.os "linux" -}}
-apt install exa
+EXA_OS_IDENTIFER="linux"
 {{ else if eq .chezmoi.os "darwin" -}}
-brew install exa
+EXA_OS_IDENTIFER="macos"
 {{ end -}}
 
-
-# ##############################################################################
-# antigen
-# ##############################################################################
-
-if [ ! -d "$HOME/antigen" ]
-then
-    git clone https://github.com/zsh-users/antigen.git ~/antigen
+if [ ! -n "$EXA_OS_IDENTIFIER" ]; then
+    curl -L https://github.com/ogham/exa/releases/download/$EXA_VERSION/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip >/tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip
+    unzip -o /tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip -d ~/.local/share/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION
+    rm /tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip
+    ln -sf ~/.local/share/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION/bin/exa ~/.local/bin/exa
 fi
-
 
 # ##############################################################################
 # diff-so-fancy
 # ##############################################################################
 
-if [ ! -d "$HOME/diff-so-fancy" ]
-then
-    git clone https://github.com/so-fancy/diff-so-fancy ~/diff-so-fancy
+if [ ! -d "$HOME/.local/share/diff-so-fancy" ]; then
+    git clone https://github.com/so-fancy/diff-so-fancy ~/.local/share/diff-so-fancy
+    ln -s ~/.local/share/diff-so-fancy/diff-so-fancy ~/.local/bin/diff-so-fancy
+fi
+
+# ##############################################################################
+# antigen
+# NOTE: antigen is sourced directly from the zshrc - it does not need to be
+# added to the path.
+# ##############################################################################
+
+if [ ! -d "$HOME/antigen" ]; then
+    git clone https://github.com/zsh-users/antigen.git ~/antigen
 fi

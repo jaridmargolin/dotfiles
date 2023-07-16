@@ -2,9 +2,9 @@
 
 # ##############################################################################
 #
-# diff-so-fancy.sh
+# env.sh
 #
 # ##############################################################################
 
-# make sure installed diff-so-fancy is available in path
-export PATH=$PATH:$HOME/diff-so-fancy
+# allow installing and using user specific executables
+export PATH="$HOME/.local/bin:$PATH"

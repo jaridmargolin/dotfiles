@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# install packages
+#
+# NOTE: This is primarily for small cross platform utilities. Larger
+# dependencies like programming languages etc. should be the responsibility
+# of the host.
+#
+# ##############################################################################
+
+# ##############################################################################
+# exa
+# ##############################################################################
+
+{{ if eq .chezmoi.os "linux" -}}
+apt install exa
+{{ else if eq .chezmoi.os "darwin" -}}
+brew install exa
+{{ end -}}
+
+
+# ##############################################################################
+# antigen
+# ##############################################################################
+
+if [ ! -d "$HOME/antigen" ]
+then
+    git clone https://github.com/zsh-users/antigen.git ~/antigen
+fi
+
+
+# ##############################################################################
+# diff-so-fancy
+# ##############################################################################
+
+if [ ! -d "$HOME/diff-so-fancy" ]
+then
+    git clone https://github.com/so-fancy/diff-so-fancy ~/diff-so-fancy
+fi

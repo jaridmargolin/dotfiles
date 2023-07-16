@@ -33,23 +33,6 @@ antigen apply
 
 # ##############################################################################
 #
-# configure prompt
-#
-# ##############################################################################
-
-
-# Check if starship is installed
-if ! command -v starship &> /dev/null
-then
-    echo "Starship not found. Installing..."
-    curl -sS https://starship.rs/install.sh | sh
-fi
-
-# Initialize starship
-eval "$(starship init zsh)"
-
-# ##############################################################################
-#
 # source local zsh configuration
 #
 # ##############################################################################
@@ -61,3 +44,14 @@ for f in $(find -L ${SCRIPT_DIR}/zsh/common -name "*.sh"); do [ -f $f ] && sourc
 if [[ $OSTYPE == 'darwin'* ]]; then
   for f in $(find -L ${SCRIPT_DIR}/zsh/macos -name "*.sh"); do [ -f $f ] && source "$f"; done
 fi
+
+# ##############################################################################
+#
+# configure prompt
+# NOTE: This needs to come after scripts are sourced to ensure PATH is set
+# correctly (common/env.sh)
+#
+# ##############################################################################
+
+# Initialize starship
+eval "$(starship init zsh)"

@@ -41,12 +41,14 @@ then
 fi
 
 # ##############################################################################
-# diff-so-fancy
+# delta
 # ##############################################################################
 
-if [ ! -d "$HOME/.local/share/diff-so-fancy" ]; then
-    git clone https://github.com/so-fancy/diff-so-fancy ~/.local/share/diff-so-fancy
-    ln -s ~/.local/share/diff-so-fancy/diff-so-fancy ~/.local/bin/diff-so-fancy
+if
+    ! command -v delta &
+    >/dev/null
+then
+    curl -sS https://webi.sh/delta | sh
 fi
 
 # ##############################################################################

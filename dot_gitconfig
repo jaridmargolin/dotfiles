@@ -2,8 +2,22 @@
 	name = Jarid Margolin
 	email = jaridmargolin@gmail.com
 
-[core]
-    pager = "if command -v diff-so-fancy >/dev/null 2>&1; then diff-so-fancy | less --tabs=4 -RFX; else less --tabs=4 -RFX; fi"
+[pager]
+    diff = delta
+    show = delta
+    log = delta
+    blame = delta
+    reflog = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    diff-so-fancy = true
+    syntax-theme = Dracula
+    light = false
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 
 [filter "lfs"]
     process = git-lfs filter-process

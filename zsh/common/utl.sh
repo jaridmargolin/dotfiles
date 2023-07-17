@@ -11,9 +11,10 @@
 alias cp="cp -r"        # Recursive by default
 alias mkdir="mkdir -pv" # Create required and log
 
-alias ls="exa --icons --grid --classify --colour=auto --sort=type --group-directories-first --header --modified --created --git --binary --group"
+alias ls="lsd --group-directories-first "
 alias la="ls -a"
-alias ll="ls -al"
+alias ll="ls -al --header"
+alias lt="ls --tree"
 
 alias path='echo -e ${PATH//:/\\n}' # Echo all executable Paths
 

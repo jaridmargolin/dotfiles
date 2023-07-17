@@ -30,22 +30,14 @@ then
 fi
 
 # ##############################################################################
-# exa
+# lsd
 # ##############################################################################
 
-EXA_VERSION="v0.10.1"
-
-{{ if eq .chezmoi.os "linux" -}}
-EXA_OS_IDENTIFER="linux"
-{{ else if eq .chezmoi.os "darwin" -}}
-EXA_OS_IDENTIFER="macos"
-{{ end -}}
-
-if [ ! -n "$EXA_OS_IDENTIFIER" ]; then
-    curl -L https://github.com/ogham/exa/releases/download/$EXA_VERSION/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip >/tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip
-    unzip -o /tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip -d ~/.local/share/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION
-    rm /tmp/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION.zip
-    ln -sf ~/.local/share/exa-$EXA_OS_IDENTIFER-x86_64-$EXA_VERSION/bin/exa ~/.local/bin/exa
+if
+    ! command -v lsd &
+    >/dev/null
+then
+    curl -sS https://webi.sh/lsd | sh
 fi
 
 # ##############################################################################

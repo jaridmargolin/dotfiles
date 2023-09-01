@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# install utils
+#
+# This is primarily for small cross platform utilities. Larger dependencies like
+# programming languages etc. should be the responsibility of the host.
+#
+# run if the following files change:
+# Ref: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# {{ include (printf "%s/scripts/common/install-utils.sh" .chezmoi.sourceDir) | sha256sum }}
+#
+# ##############################################################################
+
+/bin/sh {{ .chezmoi.sourceDir }}/scripts/common/install-utils.sh

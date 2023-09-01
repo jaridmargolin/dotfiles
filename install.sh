@@ -1,5 +1,21 @@
 #!/bin/sh
 
+# ##############################################################################
+#
+# install
+#
+# This is primarily used to install and execute the dotfiles if pulled onto an
+# existing machine. For example, this will run in devcontainers which can be
+# configured to pull dotfiles from a specified repo and automatically execute
+# any `install.sh` file found at the root of the repo.
+#
+# If you are looking to setup these dotfiles on a new host MacOS machine, you
+# can use this chezmoi one-liner which will install chezmoi and sync the
+# specified repo:
+# $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jaridmargolin
+#
+# ##############################################################################
+
 # -e: exit on error
 # -u: exit on unset variables
 set -eu

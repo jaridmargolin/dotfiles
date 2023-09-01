@@ -2,7 +2,7 @@
 
 # ##############################################################################
 #
-# install packages
+# install utils
 #
 # NOTE: This is primarily for small cross platform utilities. Larger
 # dependencies like programming languages etc. should be the responsibility
@@ -10,21 +10,15 @@
 #
 # ##############################################################################
 
-# check for dependencies required to install packages
-# unzip, curl, wget, git
-
 # Make sure the environment is prepared for installation
 mkdir -p ~/.local/bin
 mkdir -p ~/.local/share
 
 # ##############################################################################
-# startship
+# starship
 # ##############################################################################
 
-if
-    ! command -v starship &
-    >/dev/null
-then
+if ! command -v starship &> /dev/null; then
     echo "Starship not found. Installing..."
     curl -sS https://starship.rs/install.sh | sh -s -- -f -b ~/.local/bin
 fi
@@ -33,10 +27,7 @@ fi
 # lsd
 # ##############################################################################
 
-if
-    ! command -v lsd &
-    >/dev/null
-then
+if ! command -v lsd &> /dev/null; then
     curl -sS https://webi.sh/lsd | sh
 fi
 
@@ -44,10 +35,7 @@ fi
 # delta
 # ##############################################################################
 
-if
-    ! command -v delta &
-    >/dev/null
-then
+if ! command -v delta &> /dev/null; then
     curl -sS https://webi.sh/delta | sh
 fi
 

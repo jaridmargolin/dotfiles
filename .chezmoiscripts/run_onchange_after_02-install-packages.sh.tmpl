@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# install packages
+#
+# NOTE: This is primarily used for bringing up a new macos env. If you need to
+# install small cross platform utilities for any env in which these dotfiles are
+# used, add to `run_onchange_01-install-utils.sh.tmpl`
+#
+# run if the following files change:
+# Ref: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# {{ include (printf "%s/scripts/macos/install-brew-packages.sh" .chezmoi.sourceDir) | sha256sum }}
+# {{ include (printf "%s/Brewfile" .chezmoi.homeDir) | sha256sum }}
+#
+# ##############################################################################
+
+{{ if eq .chezmoi.os "darwin" -}}
+/bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/install-brew-packages.sh
+{{ end -}}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# install package manager
+#
+# NOTE: This is primarily used to install and setup brew on macos. Most other
+# operating systems we will use have a default package manager.
+#
+# ##############################################################################
+
+{{ if eq .chezmoi.os "darwin" -}}
+/bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/install-brew.sh
+{{ end -}}

@@ -11,4 +11,5 @@
 
 {{ if eq .chezmoi.os "darwin" -}}
 /bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/install-brew.sh
+eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}

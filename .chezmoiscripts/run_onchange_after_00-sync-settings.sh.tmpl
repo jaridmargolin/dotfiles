@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# sync settings
+#
+# This is primarily used to sync macOS settings.
+#
+#
+# run if the following files change:
+# Ref: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# {{ include (printf "%s/scripts/macos/sync-settings.sh" .chezmoi.sourceDir) | sha256sum }}
+#
+# ##############################################################################
+
+# Expose chezmoi vars as env vars to subsequent scripts
+export CONFIG_COMPUTER_NAME={{ .computername | quote }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+/bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/sync-settings.sh
+{{ end -}}

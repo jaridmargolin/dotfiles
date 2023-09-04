@@ -2,4 +2,13 @@
 # called can pass in the sourceDir pointing to the location the dotfiles were
 # cloned to (vscode & codespaces use ~/dotfiles).
 # Ref: https://www.chezmoi.io/user-guide/machines/containers-and-vms/
+{{- $codespaces:= env "CODESPACES" | not | not -}}
 sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+    codespaces = {{ $codespaces }}
+{{- if $codespaces }}{{/* Codespaces dotfiles setup is non-interactive, so set an email address */}}
+    computername = "codespaces"
+{{- else }}{{/* Interactive setup, so prompt for an email address */}}
+    computername = {{ promptString "Computer Name (as done via System Preferences → Sharing)" | quote }}
+{{- end }}

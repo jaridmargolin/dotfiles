@@ -50,9 +50,9 @@ brew "mas"
 
 # install apps through the mac app store - this is only used when items cannot
 # be installed through as cask
-mas "ColorSlurp", id: 1287239339
-mas "Dato", id: 1470584107
-mas "LimeChat", id: 414030210
+# mas "ColorSlurp", id: 1287239339
+# mas "Dato", id: 1470584107
+# mas "LimeChat", id: 414030210
 
 # vscode extensions (I do not believe this is necessary as we have vscode sync)
 # vscode "alefragnani.project-manager"

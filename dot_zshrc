@@ -8,6 +8,7 @@ export ANTIGEN_LOG=~/antigen.log
 source ~/antigen/antigen.zsh
 
 zstyle ':omz:plugins:yarn' global-path no
+zstyle ':omz:plugins:docker' legacy-completion yes
 
 antigen bundle jaridmargolin/bm
 antigen use oh-my-zsh
@@ -18,12 +19,16 @@ antigen bundle yarn
 antigen bundle direnv
 antigen bundle history
 antigen bundle aws
-antigen bundle docker
 antigen bundle extract
 antigen bundle 1password
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+# NOTE: Temporarily disabled due to errors with autompletion. Need to
+# investigate alternative frameworks / package managers that are still
+# maintained and may be more stable.
+# antigen bundle docker
 
 # configure your keybindings here... just 2 lines of code!
 bindkey '^[[A' history-substring-search-up

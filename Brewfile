@@ -53,6 +53,7 @@ brew "mas"
 # mas "ColorSlurp", id: 1287239339
 # mas "Dato", id: 1470584107
 # mas "LimeChat", id: 414030210
+# mas "Twingate", id: 1501592214
 
 # vscode extensions (I do not believe this is necessary as we have vscode sync)
 # vscode "alefragnani.project-manager"

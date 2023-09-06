@@ -1,5 +1,19 @@
 # ##############################################################################
 #
+# source local zsh configuration
+#
+# ##############################################################################
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" > /dev/null && pwd -P)"
+
+for f in $(find -L ${SCRIPT_DIR}/zsh/common -name "*.sh"); do [ -f $f ] && source "$f"; done
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+  for f in $(find -L ${SCRIPT_DIR}/zsh/macos -name "*.sh"); do [ -f $f ] && source "$f"; done
+fi
+
+# ##############################################################################
+#
 # zsh packages
 #
 # ##############################################################################
@@ -35,20 +49,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 antigen apply
-
-# ##############################################################################
-#
-# source local zsh configuration
-#
-# ##############################################################################
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" > /dev/null && pwd -P)"
-
-for f in $(find -L ${SCRIPT_DIR}/zsh/common -name "*.sh"); do [ -f $f ] && source "$f"; done
-
-if [[ $OSTYPE == 'darwin'* ]]; then
-  for f in $(find -L ${SCRIPT_DIR}/zsh/macos -name "*.sh"); do [ -f $f ] && source "$f"; done
-fi
 
 # ##############################################################################
 #

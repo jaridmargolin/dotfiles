@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# ##############################################################################
+#
+# install languages
+#
+# NOTE: This installs languages and language managers.
+#
+# run if the following files change:
+# Ref: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# {{ include (printf "%s/scripts/macos/install-languages.sh" .chezmoi.sourceDir) | sha256sum }}
+# {{ include (printf "%s/Brewfile" .chezmoi.homeDir) | sha256sum }}
+#
+# ##############################################################################
+
+# NOTE: We are only going to install languages on macOS as the usecase for
+# installing languages does not make sense in devcontainers and non developer
+# host machine devices.
+{{ if eq .chezmoi.os "darwin" -}}
+/bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/install-languages.sh
+{{ end -}}

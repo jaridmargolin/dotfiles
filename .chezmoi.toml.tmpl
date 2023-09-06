@@ -9,6 +9,8 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
     codespaces = {{ $codespaces }}
 {{- if $codespaces }}{{/* Codespaces dotfiles setup is non-interactive, so set an email address */}}
     computername = "codespaces"
+    email = "jaridmargolin@gmail.com"
 {{- else }}{{/* Interactive setup, so prompt for an email address */}}
     computername = {{ promptString "Computer Name (as done via System Preferences → Sharing)" | quote }}
+    email = {{ promptString "Email (used as git email)" | quote }}
 {{- end }}

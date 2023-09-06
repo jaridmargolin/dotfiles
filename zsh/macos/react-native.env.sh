@@ -2,13 +2,9 @@
 
 # ##############################################################################
 #
-# editor
+# react-native.env.sh
+# Common helpers/aliases for working with react-native on MacOSX.
 #
 # ##############################################################################
 
-if command -v vi > /dev/null; then
-  export EDITOR=vi
-  export VISUAL=$EDITOR
-  export GIT_EDITOR=$EDITOR
-fi
-
+export REACT_EDITOR=idea

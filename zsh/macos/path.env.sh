@@ -2,9 +2,9 @@
 
 # ##############################################################################
 #
-# hyper.sh
+# pth.env.sh
 #
 # ##############################################################################
 
-# Fix "%" displaying upon new hyper session
-unsetopt PROMPT_SP
+# allow installing and using user specific executables
+export PATH="$HOME/.local/bin:$PATH"

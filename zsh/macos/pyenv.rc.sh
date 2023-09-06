@@ -2,10 +2,9 @@
 
 # ##############################################################################
 #
-# react-native.sh
-#
-# Common helpers/aliases for working with react-native on MacOSX.
+# pyenv.rc.sh
 #
 # ##############################################################################
 
-export REACT_EDITOR=idea
+# Enable shims, without shell integration
+eval "$(pyenv init --path)"

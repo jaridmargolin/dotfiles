@@ -2,10 +2,10 @@
 
 # ##############################################################################
 #
-# direnv.sh
+# java.env.sh
 #
-# Personal preference, but I don't need to see the output from direnv
+# Setup java environment on macos
 #
 # ##############################################################################
 
-export DIRENV_LOG_FORMAT=""
+export JAVA_HOME=/Library/Java/Home

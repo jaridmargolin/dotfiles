@@ -1,0 +1,19 @@
+# ##############################################################################
+#
+# zshenv
+# This file is sourced on all invocations of the shell. It is typically used for
+# exporting environment variables that should be inherited by all processes.
+#
+# ##############################################################################
+
+# Add a helper function to source scripts within directories. Used in the
+# .zprofile and .zshrc dot files.
+source_scripts () {
+  BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" > /dev/null && pwd -P)"
+  for f in $(find -L $1 -name "$2"); do [ -f $f ] && source "$f"; done
+}
+
+source_scripts ~/zsh/common "*.env.sh"
+if [[ $OSTYPE == 'darwin'* ]]; then
+  source_scripts ~/zsh/macos "*.env.sh"
+fi

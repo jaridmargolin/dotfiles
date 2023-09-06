@@ -2,10 +2,13 @@
 
 # ##############################################################################
 #
-# java.sh
-#
-# Setup java environment on macos
+# editor.env.sh
 #
 # ##############################################################################
 
-export JAVA_HOME=/Library/Java/Home
+if command -v vi > /dev/null; then
+  export EDITOR=vi
+  export VISUAL=$EDITOR
+  export GIT_EDITOR=$EDITOR
+fi
+

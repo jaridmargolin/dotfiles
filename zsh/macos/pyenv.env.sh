@@ -2,7 +2,7 @@
 
 # ##############################################################################
 #
-# pyenv.sh
+# pyenv.env.sh
 #
 # ##############################################################################
 
@@ -14,6 +14,3 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 # path elsewhere so we don't need to add it here. Comment and code left in for
 # reference.
 # export PATH="$HOME/.local/bin:$PATH"
-
-# Enable shims, without shell integration
-eval "$(pyenv init --path)"

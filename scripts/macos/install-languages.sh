@@ -51,6 +51,10 @@ if command -v brew &> /dev/null; then
             asdf install ruby $ruby_version
         fi
 
+        # TODO: Look into installing poetry. There appears to be a few issues
+        # which is why we are not installing it here.
+        # Ref: https://github.com/asdf-community/asdf-poetry/issues/10
+
         # set default language versions
         asdf global nodejs $nodejs_version
         asdf global yarn $yarn_version

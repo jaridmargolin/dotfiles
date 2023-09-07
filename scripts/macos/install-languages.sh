@@ -7,6 +7,7 @@
 # ##############################################################################
 
 nodejs_version="16.13.0"
+yarn_version="1.22.19"
 python_version="3.9.7"
 ruby_version="3.0.2"
 
@@ -24,6 +25,14 @@ if command -v brew &> /dev/null; then
         fi
         if ! asdf list nodejs | grep -q "$nodejs_version"; then
             asdf install nodejs $nodejs_version
+        fi
+
+        # install yarn
+        if ! asdf plugin list | grep -q "yarn"; then
+            asdf plugin add yarn
+        fi
+        if ! asdf list yarn | grep -q "$yarn_version"; then
+            asdf install yarn $yarn_version
         fi
 
         # install python
@@ -44,6 +53,7 @@ if command -v brew &> /dev/null; then
 
         # set default language versions
         asdf global nodejs $nodejs_version
+        asdf global yarn $yarn_version
         asdf global python $python_version
         asdf global ruby $ruby_version
     fi

@@ -11,6 +11,7 @@ yarn_version="1.22.19"
 python_version="3.9.7"
 ruby_version="3.0.2"
 rust_version="1.71.1"
+golang_version="1.21.1"
 
 # Setup asdf for usage within this installation script. Normally, asdf is setup
 # in the .zshrc file, but that file is not sourced when running this script.
@@ -60,6 +61,14 @@ if command -v brew &> /dev/null; then
             asdf install rust $rust_version
         fi
 
+        # install golang
+        if ! asdf plugin list | grep -q "golang"; then
+            asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+        fi
+        if ! asdf list golang | grep -q "$golang_version"; then
+            asdf install golang $golang_version
+        fi
+
         # TODO: Look into installing poetry. There appears to be a few issues
         # which is why we are not installing it here.
         # Ref: https://github.com/asdf-community/asdf-poetry/issues/10
@@ -70,5 +79,6 @@ if command -v brew &> /dev/null; then
         asdf global python $python_version
         asdf global ruby $ruby_version
         asdf global rust $rust_version
+        asdf global golang $golang_version
     fi
 fi

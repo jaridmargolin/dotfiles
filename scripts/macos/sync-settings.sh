@@ -217,6 +217,9 @@ defaults write com.apple.dock "wvous-tl-modifier" -int 0
 defaults write com.apple.dock "wvous-tr-corner" -int 4 # Desktop
 defaults write com.apple.dock "wvous-tr-modifier" -int 0
 
+# configure spaces to stop rearranging based on usage
+defaults write com.apple.dock mru-spaces -bool false
+
 ################################################################################
 # Kill affected applications
 ################################################################################

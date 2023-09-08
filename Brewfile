@@ -36,10 +36,8 @@ cask "zoom"
 
 # packages
 brew "asdf"
-brew "awscli"
 brew "cloud-nuke"
 brew "curl"
-brew "deno"
 brew "direnv"
 brew "docker-credential-helper-ecr"
 brew "gh"
@@ -47,6 +45,11 @@ brew "gnupg"
 brew "imagemagick"
 brew "jq"
 brew "mas"
+
+# versioned packages (should these be pulled out into install-languages)
+brew "awscli"
+brew "deno"
+brew "protobuf"
 
 # install apps through the mac app store - this is only used when items cannot
 # be installed through as cask

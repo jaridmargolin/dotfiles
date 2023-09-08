@@ -10,6 +10,7 @@ nodejs_version="16.13.0"
 yarn_version="1.22.19"
 python_version="3.9.7"
 ruby_version="3.0.2"
+rust_version="1.71.1"
 
 # Setup asdf for usage within this installation script. Normally, asdf is setup
 # in the .zshrc file, but that file is not sourced when running this script.
@@ -51,6 +52,14 @@ if command -v brew &> /dev/null; then
             asdf install ruby $ruby_version
         fi
 
+        # install rust
+        if ! asdf plugin list | grep -q "rust"; then
+            asdf plugin add rust https://github.com/asdf-community/asdf-rust.git
+        fi
+        if ! asdf list rust | grep -q "$rust_version"; then
+            asdf install rust $rust_version
+        fi
+
         # TODO: Look into installing poetry. There appears to be a few issues
         # which is why we are not installing it here.
         # Ref: https://github.com/asdf-community/asdf-poetry/issues/10
@@ -60,5 +69,6 @@ if command -v brew &> /dev/null; then
         asdf global yarn $yarn_version
         asdf global python $python_version
         asdf global ruby $ruby_version
+        asdf global rust $rust_version
     fi
 fi

@@ -7,4 +7,6 @@
 # ##############################################################################
 
 # Enable shims, without shell integration
-eval "$(pyenv init --path)"
+if command -v pyenv &> /dev/null; then
+    eval "$(pyenv init --path)"
+fi

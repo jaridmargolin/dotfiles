@@ -1,14 +1,21 @@
+# Chezmoi recommends using CODESPACES but this fails when running local
+# devcontainers, so we are going to add an additional var for REMOTE_CONTAINERS
+# which was found via manual inspection of the devcontainer logs.
+# Ref: https://www.chezmoi.io/user-guide/machines/containers-and-vms/
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+{{- $remotecontainer:= env "REMOTE_CONTAINERS" | not | not -}}
+
 # Required for devcontainers so that the install script that is automatically
 # called can pass in the sourceDir pointing to the location the dotfiles were
 # cloned to (vscode & codespaces use ~/dotfiles).
 # Ref: https://www.chezmoi.io/user-guide/machines/containers-and-vms/
-{{- $codespaces:= env "CODESPACES" | not | not -}}
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
     codespaces = {{ $codespaces }}
-{{- if $codespaces }}{{/* Codespaces dotfiles setup is non-interactive, so set an email address */}}
-    computername = "codespaces"
+    remotecontainer = {{ $remotecontainer }}
+{{- if $remotecontainer }}{{/* Remote container dotfiles setup is non-interactive, so set normally interactive values */}}
+    computername = "remotecontainer"
     email = "jaridmargolin@gmail.com"
 {{- else }}{{/* Interactive setup, so prompt for an email address */}}
     computername = {{ promptString "Computer Name (as done via System Preferences → Sharing)" | quote }}

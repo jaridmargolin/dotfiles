@@ -58,3 +58,12 @@ fi
 
 # Initialize starship
 eval "$(starship init zsh)"
+
+# ##############################################################################
+#
+# source envman
+# NOTE: This is utilized by the webi installer.
+#
+# ##############################################################################
+
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

@@ -1,6 +1,5 @@
 # set supported repositories for brew to pull from
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
 # fonts

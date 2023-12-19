@@ -9,6 +9,12 @@ Your setup instructions will vary slightly depending on where you are intending 
 - curl
 - git
 
+If you are using macOS, ensure you have installed brew:
+
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 ### macOS
 
 To setup macOS, you'll need to install the command line tools:

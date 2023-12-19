@@ -50,8 +50,11 @@ brew "awscli"
 brew "deno"
 brew "protobuf"
 
-# install apps through the mac app store - this is only used when items cannot
-# be installed through as cask
+
+# NOTE: install apps through the mac app store - this is only used when items
+# cannot be installed through as cask.
+# NOTE: This does not currently work due to known issues with mas and items that
+# need to be purchased. Leaving here to reference of what shoiuld be installed.
 # mas "ColorSlurp", id: 1287239339
 # mas "Dato", id: 1470584107
 # mas "LimeChat", id: 414030210

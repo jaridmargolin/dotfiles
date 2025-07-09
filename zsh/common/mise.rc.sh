@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/bin/zsh
 
 # ##############################################################################
 #
-# go.rc.sh
-# Setup go to work as expected
+# mise.rc.sh
+# Active mise for zsh if it exists.
 #
 # ##############################################################################
 
-# Ref: https://github.com/asdf-community/asdf-golang#goroot
-. ~/.asdf/plugins/golang/set-env.zsh
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi

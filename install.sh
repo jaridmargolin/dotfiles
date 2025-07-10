@@ -19,7 +19,7 @@
 # This allows us to skip the install if we are in a devcontainer and explicitly
 # want to skip the dotfiles install by setting the DOTFILES_INSTALL environment
 # variable to 0.
-if [[ "${DOTFILES_INSTALL:-1}" != "1" ]]; then
+if [ "${DOTFILES_INSTALL:-1}" != "1" ]; then
   echo "Dotfiles install skipped (DOTFILES_INSTALL=$DOTFILES_INSTALL)"
   exit 0
 fi

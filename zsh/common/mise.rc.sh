@@ -8,5 +8,7 @@
 # ##############################################################################
 
 if command -v mise &> /dev/null; then
-    eval "$(mise activate zsh)"
+    if [[ $VSCODE_RESOLVING_ENVIRONMENT != "1" ]]; then
+        eval "$(mise activate zsh)"
+    fi
 fi

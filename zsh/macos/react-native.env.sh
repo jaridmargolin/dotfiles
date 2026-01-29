@@ -7,4 +7,5 @@
 #
 # ##############################################################################
 
-export REACT_EDITOR=idea
+# Default editor when clicking errors/stack traces in the React Native emulator
+export REACT_EDITOR=cursor

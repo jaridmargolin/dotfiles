@@ -40,11 +40,11 @@ if ! command -v delta &> /dev/null; then
 fi
 
 # ##############################################################################
-# antigen
-# NOTE: antigen is sourced directly from the zshrc - it does not need to be
+# antidote (zsh plugin manager)
+# NOTE: antidote is sourced directly from the zshrc - it does not need to be
 # added to the path.
 # ##############################################################################
 
-if [ ! -d "$HOME/antigen" ]; then
-    git clone https://github.com/zsh-users/antigen.git ~/antigen
+if [ ! -d "$HOME/.antidote" ]; then
+    git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.antidote"
 fi

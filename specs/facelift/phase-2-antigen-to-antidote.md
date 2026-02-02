@@ -15,7 +15,7 @@
 
 ## 1. Add Antidote plugin list
 
-- [ ] Create `dot_zsh_plugins.txt` in the chezmoi source root (it will be applied to `~/.zsh_plugins.txt`).
+- [x] Create `dot_zsh_plugins.txt` in the chezmoi source root (it will be applied to `~/.zsh_plugins.txt`).
 
 **Contents (adjust if you add/remove plugins later):**
 
@@ -42,7 +42,7 @@ zsh-users/zsh-syntax-highlighting
 
 ## 2. Install Antidote in install-utils
 
-- [ ] In `scripts/common/install-utils.sh`, replace the Antigen block with:
+- [x] In `scripts/common/install-utils.sh`, replace the Antigen block with:
 
 ```sh
 # antidote (zsh plugin manager)
@@ -51,13 +51,13 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.antidote" ]; then
 fi
 ```
 
-- [ ] Remove any Antigen-specific logic (e.g. cloning antigen into `~/antigen`).
+- [x] Remove any Antigen-specific logic (e.g. cloning antigen into `~/antigen`).
 
 ---
 
 ## 3. Switch dot_zshrc to Antidote
 
-- [ ] In `dot_zshrc`, replace the entire Antigen block (from `export ANTIGEN_LOG` through `antigen apply`) with:
+- [x] In `dot_zshrc`, replace the entire Antigen block (from `export ANTIGEN_LOG` through `antigen apply`) with:
 
 ```zsh
 # zsh plugins (Antidote)
@@ -69,8 +69,8 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 ```
 
-- [ ] Remove any `zstyle` lines that were for OMZ/antigen (e.g. `zstyle ':omz:plugins:yarn'`, `zstyle ':omz:plugins:docker'`) unless Antidote/OMZ docs say to keep them.
-- [ ] Keep the rest of `dot_zshrc` unchanged: `source_scripts` for `*.rc.sh`, then Starship, then envman (if you keep it).
+- [x] Remove any `zstyle` lines that were for OMZ/antigen (e.g. `zstyle ':omz:plugins:yarn'`, `zstyle ':omz:plugins:docker'`) unless Antidote/OMZ docs say to keep them. *(kept yarn zstyle, removed docker zstyle)*
+- [x] Keep the rest of `dot_zshrc` unchanged: `source_scripts` for `*.rc.sh`, then Starship, then envman (if you keep it).
 
 ---
 

@@ -1,4 +1,4 @@
-# Phase 3: Antigen → Antidote
+# Phase 2: Antigen → Antidote
 
 **Risk:** Higher (touches plugin loading and startup).  
 **Prerequisite:** Phase 1 done (pyenv removed from dot_zshrc; optional but cleaner).

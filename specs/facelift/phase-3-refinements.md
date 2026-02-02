@@ -1,7 +1,7 @@
-# Phase 4: Refinements
+# Phase 3: Refinements
 
 **Risk:** Low–Medium  
-**Prerequisite:** Phases 1–3 done (recommended).
+**Prerequisite:** Phases 1–2 done (recommended).
 
 ---
 

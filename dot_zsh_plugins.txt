@@ -12,7 +12,6 @@ getantidote/use-omz
 ohmyzsh/ohmyzsh path:lib
 
 # OMZ plugins
-ohmyzsh/ohmyzsh path:plugins/yarn
 ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/history
 ohmyzsh/ohmyzsh path:plugins/aws

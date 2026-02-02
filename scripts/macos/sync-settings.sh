@@ -194,9 +194,9 @@ defaults write com.apple.controlcenter "NSStatusItem Preferred Position Sound" -
 # ##############################################################################
 
 # Remove spotlight from the menubar (prefer to use keyboard)
-defaults delete com.apple.Spotlight "NSStatusItem Visible Item-0"
+# NOTE: On modern macOS (Ventura+), MenuItemHidden is the correct setting.
+# The old "NSStatusItem Visible Item-0" approach no longer works.
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
-# defaults write com.apple.Spotlight "NSStatusItem Visible Item-0" -bool true
 # defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool false
 
 # ##############################################################################

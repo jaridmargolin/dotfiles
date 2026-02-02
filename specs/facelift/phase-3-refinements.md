@@ -25,16 +25,10 @@ This removes the unused `BASE_DIR`, uses zsh glob with `(N)` null_glob, and skip
 
 ## 2. Modernize java.env.sh
 
-- [ ] In `zsh/macos/java.env.sh`, replace the static `JAVA_HOME` with:
-
-```zsh
-#!/bin/zsh
-if /usr/libexec/java_home &>/dev/null; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-```
-
-- [ ] Ensure shebang is `#!/bin/zsh` (Phase 1 should have done this).
+- [x] Added opt-in Java installation via chezmoi prompt (`install_java`)
+- [x] Added Java to `install-languages.sh` (conditional on `INSTALL_JAVA` env var)
+- [x] Updated `java.env.sh` to use dynamic `/usr/libexec/java_home` detection
+- [x] Fixed comment in `install-languages.sh` (asdf → mise)
 
 ---
 

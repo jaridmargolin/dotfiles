@@ -17,5 +17,11 @@
 # installing languages does not make sense in devcontainers and non developer
 # host machine devices.
 {{ if eq .chezmoi.os "darwin" -}}
+export INSTALL_NODE={{ .languages.node }}
+export INSTALL_PYTHON={{ .languages.python }}
+export INSTALL_RUBY={{ .languages.ruby }}
+export INSTALL_GO={{ .languages.go }}
+export INSTALL_YARN={{ .languages.yarn }}
+export INSTALL_JAVA={{ .languages.java }}
 /bin/sh {{ .chezmoi.sourceDir }}/scripts/macos/install-languages.sh
 {{ end -}}

@@ -17,7 +17,21 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 {{- if $headless }}
     computername = "headlesscontainer"
     email = "jaridmargolin@gmail.com"
-{{- else }}{{/* Interactive setup, so prompt for an email address */}}
+    [data.languages]
+        node = false
+        python = false
+        ruby = false
+        go = false
+        yarn = false
+        java = false
+{{- else }}{{/* Interactive setup, so prompt for values */}}
     computername = {{ promptString "Computer Name (as done via System Preferences → Sharing)" | quote }}
     email = {{ promptString "Email (used as git email)" | quote }}
+    [data.languages]
+        node = {{ promptBool "Install Node.js via mise" }}
+        python = {{ promptBool "Install Python via mise" }}
+        ruby = {{ promptBool "Install Ruby via mise" }}
+        go = {{ promptBool "Install Go via mise" }}
+        yarn = {{ promptBool "Install Yarn via mise" }}
+        java = {{ promptBool "Install Java via mise" }}
 {{- end }}

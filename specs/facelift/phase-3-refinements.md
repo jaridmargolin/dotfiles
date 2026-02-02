@@ -7,7 +7,7 @@
 
 ## 1. Simplify source_scripts (dot_zshenv)
 
-- [ ] In `dot_zshenv`, replace the current `source_scripts` implementation with:
+- [x] In `dot_zshenv`, replace the current `source_scripts` implementation with:
 
 ```zsh
 source_scripts() {
@@ -34,9 +34,9 @@ This removes the unused `BASE_DIR`, uses zsh glob with `(N)` null_glob, and skip
 
 ## 3. Remove docker-machine from docker.rc.sh
 
-- [ ] In `zsh/macos/docker.rc.sh`, remove the `dock()` and `undock()` functions (docker-machine is deprecated).
-- [ ] Keep `dprune()` if you use it.
-- [ ] Ensure shebang is `#!/bin/zsh`.
+- [x] In `zsh/macos/docker.rc.sh`, remove the `dock()` and `undock()` functions (docker-machine is deprecated).
+- [x] Keep `dprune()` if you use it.
+- [x] Ensure shebang is `#!/bin/zsh`.
 
 ---
 

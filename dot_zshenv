@@ -8,9 +8,13 @@
 
 # Add a helper function to source scripts within directories. Used in the
 # .zprofile and .zshrc dot files.
-source_scripts () {
-  BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")" > /dev/null && pwd -P)"
-  for f in $(find -L $1 -name "$2"); do [ -f $f ] && source "$f"; done
+# NOTE: ** = recursive. Load order is alphabetical (files in dir, then subdirs).
+source_scripts() {
+  local dir="$1" pattern="$2"
+  [[ -d "$dir" ]] || return 0
+  for f in "$dir"/**/$~pattern(N); do
+    [[ -f "$f" ]] && source "$f"
+  done
 }
 
 source_scripts ~/zsh/common "*.env.sh"

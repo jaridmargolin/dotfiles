@@ -7,10 +7,6 @@
 #
 # ##############################################################################
 
-
-dock() { eval $(docker-machine env $1) }
-undock() { eval $(docker-machine env -u) }
-
 # prune docker images
 dprune() {
     prune_images=$(docker images --filter "dangling=true" -q --no-trunc)

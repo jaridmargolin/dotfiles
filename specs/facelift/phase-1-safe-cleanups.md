@@ -6,16 +6,16 @@
 
 ## 1. Remove asdf
 
-- [ ] Delete `dot_asdfrc` (asdf is not used; mise is the version manager).
+- [x] Delete `dot_asdfrc` (asdf is not used; mise is the version manager).
 
 ---
 
 ## 2. Consolidate to mise only (remove pyenv)
 
-- [ ] Delete `zsh/macos/pyenv.env.sh` (mise handles Python).
-- [ ] Delete `zsh/macos/pyenv.rc.sh` (mise handles Python).
-- [ ] In `dot_zshrc`, remove the line `antigen bundle pyenv`.
-- [ ] In `dot_config/starship.toml`, update the comment that references asdf so it references mise (e.g. “mise takes more time…” instead of “asdf…”).
+- [x] Delete `zsh/macos/pyenv.env.sh` (mise handles Python).
+- [x] Delete `zsh/macos/pyenv.rc.sh` (mise handles Python).
+- [x] In `dot_zshrc`, remove the line `antigen bundle pyenv`.
+- [x] In `dot_config/starship.toml`, update the comment that references asdf so it references mise (e.g. “mise takes more time…” instead of “asdf…”).
 
 **Keep:** `zsh/common/mise.profile.sh` and `zsh/common/mise.rc.sh` as-is.
 
@@ -23,28 +23,28 @@
 
 ## 3. Remove legacy/unused modules
 
-- [ ] Delete `zsh/macos/hyper.rc.sh` (Hyper not in use; Warp is in Brewfile).
-- [ ] Delete `zsh/macos/mamp.rc.sh` (MAMP not in use).
-- [ ] Delete `zsh/macos/heroku.env.sh` (Heroku not in use).
+- [x] Delete `zsh/macos/hyper.rc.sh` (Hyper not in use; Warp is in Brewfile). *(already removed)*
+- [x] Delete `zsh/macos/mamp.rc.sh` (MAMP not in use). *(already removed)*
+- [x] Delete `zsh/macos/heroku.env.sh` (Heroku not in use). *(already removed)*
 
 ---
 
 ## 4. Fix path.env.sh comment
 
-- [ ] In `zsh/macos/path.env.sh`, change the header comment from `pth.env.sh` to `path.env.sh` so it matches the filename.
+- [x] In `zsh/macos/path.env.sh`, change the header comment from `pth.env.sh` to `path.env.sh` so it matches the filename.
 
 ---
 
 ## 5. Brewfile cleanup
 
-- [ ] Remove the line `tap "homebrew/cask-fonts"` (deprecated; fonts work from main cask).
-- [ ] Remove the commented block of Mac App Store apps (lines ~58–63) and the commented block of VS Code extensions (lines ~65–112).
+- [x] Remove the line `tap "homebrew/cask-fonts"` (deprecated; fonts work from main cask).
+- [ ] Remove the commented block of Mac App Store apps (lines ~58–63) and the commented block of VS Code extensions (lines ~65–112). *(deferred: keeping for audit)*
 
 ---
 
 ## 6. Standardize shebangs in zsh modules
 
-- [ ] In every `zsh/**/*.sh` file that currently has `#!/bin/bash`, change it to `#!/bin/zsh`.
+- [x] In every `zsh/**/*.sh` file that currently has `#!/bin/bash`, change it to `#!/bin/zsh`.
 
 **Files to update (after step 3 the deleted modules are gone):**
 

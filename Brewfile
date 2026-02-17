@@ -40,11 +40,13 @@ brew "gh"
 brew "gnupg"
 brew "imagemagick"
 brew "jq"
+brew "libpq"
 brew "magic-wormhole"
 brew "mas"
 brew "mise"
 brew "mkcert"
 brew "nss"
+brew "redis"
 
 # versioned packages (should these be pulled out into install-languages)
 brew "awscli"
